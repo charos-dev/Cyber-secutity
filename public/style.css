@@ -30,7 +30,7 @@ body {
 }
 
 .hero {
-  min-height: 620px;
+  min-height: 700px;
   padding: 24px;
   position: relative;
 }
@@ -121,13 +121,17 @@ h2 {
 }
 
 .notice {
-  background: rgba(255, 193, 7, 0.1);
-  border: 1px solid rgba(255, 193, 7, 0.35);
+  backdrop-filter: blur(14px);
+  background: rgba(255, 193, 7, 0.18);
+  border: 1px solid rgba(255, 193, 7, 0.55);
   border-radius: 16px;
   color: #ffe29a;
-  margin: 26px auto 0;
+  font-weight: 700;
+  margin: 34px auto 0;
   max-width: 760px;
   padding: 16px;
+  position: relative;
+  z-index: 3;
 }
 
 .container {
@@ -147,7 +151,7 @@ h2 {
   display: grid;
   gap: 28px;
   grid-template-columns: 0.95fr 1.05fr;
-  margin: -90px 0 34px;
+  margin: -55px 0 34px;
   padding: 34px;
   position: relative;
   z-index: 2;
