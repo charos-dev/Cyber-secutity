@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cyber Security Toolkit</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="navbar">
+        <div class="brand">Cyber Security Toolkit</div>
+        <div class="menu">
+          <a href="#mundarija">Mundarija</a>
+          <a href="#ip-scanner">IP Scanner</a>
+          <a href="#port-scanner">Port Scanner</a>
+          <a href="#log-analyzer">Log Analyzer</a>
+          <a href="#ddos">DDoS Detect</a>
+          <a href="#geoip">GeoIP</a>
+        </div>
+      </nav>
+
+      <section class="hero-content">
+        <p class="eyebrow">Mustaqil ish loyihasi</p>
+        <h1>Kiber xavfsizlik uchun professional mini toolkit</h1>
+        <p>
+          Har bir bo‘lim alohida vazifa bajaradi: IP tekshirish, portlarni aniqlash,
+          loglarni tahlil qilish, DDoS belgilarini ko‘rish va public IP joylashuvini topish.
+        </p>
+        <div class="notice">
+          Eslatma: IP va port scan faqat o‘zingizga tegishli yoki ruxsat berilgan
+          lokal tarmoq uchun ishlatiladi.
+        </div>
+      </section>
+    </header>
+
+    <main class="container">
+      <section class="overview" id="mundarija">
+        <div>
+          <p class="eyebrow">Mundarija</p>
+          <h2>Har bir bo‘lim alohida ishlaydi</h2>
+          <p>
+            Bu loyiha oddiy sayt emas, balki kiber xavfsizlik bo‘yicha kichik laboratoriya.
+            Har bir bo‘limda avval nima uchun kerakligi tushuntiriladi, keyin esa amaliy tekshirish qismi beriladi.
+          </p>
+        </div>
+        <div class="toc-grid">
+          <a href="#ip-scanner"><span>01</span> IP Scanner</a>
+          <a href="#port-scanner"><span>02</span> Port Scanner</a>
+          <a href="#log-analyzer"><span>03</span> IP Log Analyzer</a>
+          <a href="#ddos"><span>04</span> DDoS Detection</a>
+          <a href="#geoip"><span>05</span> GeoIP Tracker</a>
+          <a href="#about"><span>06</span> Loyiha haqida</a>
+        </div>
+      </section>
+
+      <section class="tool-section" id="ip-scanner">
+        <div class="tool-copy">
+          <span class="tag">01 / IP Scanner</span>
+          <h2>Qurilma tarmoqda bormi yoki yo‘qmi?</h2>
+          <p>
+            IP Scanner lokal tarmoqdagi qurilma javob berayotganini tekshiradi. Masalan, router,
+            kompyuter yoki server ishlayaptimi, tarmoqda ko‘rinadimi, hostname topiladimi - shu savollarga javob beradi.
+          </p>
+          <div class="info-stack">
+            <div>
+              <h3>Nega kerak?</h3>
+              <p>Tarmoqda muammo bo‘lsa, avval qurilma umuman online ekanini bilish kerak. Bu troubleshootingning birinchi bosqichi.</p>
+            </div>
+            <div>
+              <h3>Qanday ishlaydi?</h3>
+              <p>Server IP manzilga ping yuboradi va DNS reverse lookup orqali hostname topishga harakat qiladi.</p>
+            </div>
+            <div>
+              <h3>Qanday ishlatish kerak?</h3>
+              <p>Inputga <code>127.0.0.1</code> yoki <code>192.168.1.1</code> kiriting va tekshirish tugmasini bosing.</p>
+            </div>
+          </div>
+          <div class="warning-box">Faqat o‘zingizga tegishli lokal IP manzillarni tekshiring.</div>
+        </div>
+        <div class="scanner-panel">
+          <div class="panel-header">
+            <span>IP Scanner Console</span>
+            <small>online / offline</small>
+          </div>
+          <label class="input-card">
+            <span>IP yoki hostname kiriting</span>
+            <input id="ipTarget" value="127.0.0.1" placeholder="Masalan: 127.0.0.1" />
+          </label>
+          <div class="examples">
+            <span>Misollar:</span>
+            <code>127.0.0.1</code>
+            <code>192.168.1.1</code>
+          </div>
+          <button onclick="runIpScan()">IP ni tekshirish</button>
+          <pre id="ipResult">Natija shu yerda chiqadi.</pre>
+        </div>
+      </section>
+
+      <section class="tool-section reverse" id="port-scanner">
+        <div class="tool-copy">
+          <span class="tag">02 / Port Scanner</span>
+          <h2>Qaysi xizmatlar ochiq ekanini aniqlash</h2>
+          <p>
+            Port Scanner qurilmada qaysi portlar ochiq ekanini ko‘rsatadi. Ochiq port degani
+            o‘sha qurilmada ma'lum xizmat ishlashi mumkin: masalan, <code>80</code> HTTP,
+            <code>443</code> HTTPS, <code>22</code> SSH.
+          </p>
+          <div class="info-stack">
+            <div>
+              <h3>Nega kerak?</h3>
+              <p>Keraksiz ochiq portlar xavfsizlik xavfini oshiradi. Administratorlar faqat kerakli xizmatlar ochiq ekanini tekshiradi.</p>
+            </div>
+            <div>
+              <h3>Nima uchun bunday qilinadi?</h3>
+              <p>Har bir ochiq port tizimga kirish nuqtasi bo‘lishi mumkin. Shuning uchun ularni nazorat qilish muhim.</p>
+            </div>
+            <div>
+              <h3>Qo‘llanma</h3>
+              <p>IP kiriting, portlarni vergul bilan yozing va tekshiring. Natijada <code>open: true</code> bo‘lgan portlar ko‘rinadi.</p>
+            </div>
+          </div>
+          <div class="warning-box">Begona sayt yoki serverlarni scan qilish mumkin emas. Faqat ruxsat berilgan IP lar.</div>
+        </div>
+        <div class="scanner-panel">
+          <div class="panel-header">
+            <span>Port Scanner Console</span>
+            <small>TCP port check</small>
+          </div>
+          <label class="input-card">
+            <span>IP yoki hostname</span>
+            <input id="portTarget" value="127.0.0.1" placeholder="Masalan: 127.0.0.1" />
+          </label>
+          <label class="input-card">
+            <span>Tekshiriladigan portlar</span>
+            <input id="ports" value="21,22,80,443,3000,8080" placeholder="80,443,3000" />
+          </label>
+          <div class="examples">
+            <span>Common:</span>
+            <code>80</code>
+            <code>443</code>
+            <code>22</code>
+            <code>3000</code>
+          </div>
+          <button onclick="runPortScan()">Portlarni tekshirish</button>
+          <pre id="portResult">Natija shu yerda chiqadi.</pre>
+        </div>
+      </section>
+
+      <section class="tool-section" id="log-analyzer">
+        <div class="tool-copy">
+          <span class="tag">03 / IP Log Analyzer</span>
+          <h2>Log ichidan shubhali IP larni topish</h2>
+          <p>
+            Log Analyzer server loglaridagi IP manzillarni sanaydi. Qaysi IP ko‘p kirgan,
+            qaysi qatorda failed login bo‘lgan, qaysi IP limitdan oshganini alohida chiqaradi.
+          </p>
+          <div class="info-stack">
+            <div>
+              <h3>Nega kerak?</h3>
+              <p>Hujumlar ko‘pincha loglarda iz qoldiradi. Failed login, 401, 403 yoki juda ko‘p request xavf belgisi bo‘lishi mumkin.</p>
+            </div>
+            <div>
+              <h3>Nima qilish kerak?</h3>
+              <p>Log matnini kiriting va “shubhali limit” qiymatini belgilang. Limitdan oshgan IP suspicious bo‘ladi.</p>
+            </div>
+            <div>
+              <h3>Natijani qanday tushunish kerak?</h3>
+              <p><code>topIps</code> eng faol IP larni, <code>suspiciousIps</code> esa limitdan oshgan IP larni bildiradi.</p>
+            </div>
+          </div>
+          <div class="warning-box">Haqiqiy logdan parol, token, cookie kabi maxfiy ma'lumotlarni olib tashlang.</div>
+        </div>
+        <div class="scanner-panel large-panel">
+          <div class="panel-header">
+            <span>Log Analyzer Console</span>
+            <small>IP statistics</small>
+          </div>
+          <label class="input-card">
+            <span>Log matnini kiriting</span>
+            <textarea id="logText" rows="8">192.168.1.10 GET /login 200
+192.168.1.15 POST /login failed 401
+192.168.1.15 POST /login failed 401
+192.168.1.20 GET /home 200
+192.168.1.15 POST /login failed 401</textarea>
+          </label>
+          <label class="input-card">
+            <span>Shubhali limit</span>
+            <input id="logThreshold" type="number" value="3" />
+          </label>
+          <button onclick="runLogAnalyzer()">Logni tahlil qilish</button>
+          <pre id="logResult">Natija shu yerda chiqadi.</pre>
+        </div>
+      </section>
+
+      <section class="tool-section reverse" id="ddos">
+        <div class="tool-copy">
+          <span class="tag">04 / DDoS Detection</span>
+          <h2>Juda ko‘p request yuborayotgan IP ni aniqlash</h2>
+          <p>
+            DDoS Detection bo‘limi bir IP qisqa vaqt ichida juda ko‘p request yuboryaptimi,
+            shuni statistik usulda ko‘rsatadi. Bu haqiqiy himoya tizimi emas, lekin hujum belgisini tushuntirish uchun yaxshi demo.
+          </p>
+          <div class="info-stack">
+            <div>
+              <h3>Nega kerak?</h3>
+              <p>Serverga haddan tashqari ko‘p request kelsa, sayt sekinlashadi yoki ishlamay qoladi.</p>
+            </div>
+            <div>
+              <h3>Nima uchun limit qo‘yiladi?</h3>
+              <p>Normal foydalanuvchi odatda juda ko‘p request yubormaydi. Limitdan oshish suspicious activity sifatida ko‘riladi.</p>
+            </div>
+            <div>
+              <h3>Qo‘llanma</h3>
+              <p>Request loglarini kiriting, limitni belgilang. Status <code>Possible DDoS</code> bo‘lsa, IP juda faol.</p>
+            </div>
+          </div>
+          <div class="warning-box">Haqiqiy loyihada rate limit, firewall, CDN va monitoring bilan himoya qilinadi.</div>
+        </div>
+        <div class="scanner-panel large-panel">
+          <div class="panel-header">
+            <span>DDoS Detector Console</span>
+            <small>request threshold</small>
+          </div>
+          <label class="input-card">
+            <span>Request loglarini kiriting</span>
+            <textarea id="ddosText" rows="8">10.0.0.5 GET /
+10.0.0.5 GET /api
+10.0.0.5 GET /login
+10.0.0.8 GET /
+10.0.0.5 GET /admin
+10.0.0.5 GET /dashboard</textarea>
+          </label>
+          <label class="input-card">
+            <span>Request limiti</span>
+            <input id="ddosThreshold" type="number" value="5" />
+          </label>
+          <button onclick="runDdosDetect()">DDoS tahlil</button>
+          <pre id="ddosResult">Natija shu yerda chiqadi.</pre>
+        </div>
+      </section>
+
+      <section class="tool-section" id="geoip">
+        <div class="tool-copy">
+          <span class="tag">05 / GeoIP Tracker</span>
+          <h2>Public IP qayerga tegishli?</h2>
+          <p>
+            GeoIP Tracker public IP manzilning taxminiy joylashuvi va internet provayderini ko‘rsatadi.
+            Bu usul foydalanuvchining aniq manzilini emas, IP ro‘yxatdan o‘tgan hududni ko‘rsatadi.
+          </p>
+          <div class="info-stack">
+            <div>
+              <h3>Nega kerak?</h3>
+              <p>Loglarda notanish IP ko‘rinsa, uning qaysi davlat yoki providerga tegishli ekanini tezda ko‘rish mumkin.</p>
+            </div>
+            <div>
+              <h3>Nima uchun public IP kerak?</h3>
+              <p>Private IP lar faqat lokal tarmoq ichida ishlaydi. Internetdagi joylashuv faqat public IP uchun aniqlanadi.</p>
+            </div>
+            <div>
+              <h3>Qo‘llanma</h3>
+              <p><code>8.8.8.8</code> kabi public IP kiriting va natijada country, city, ISP maydonlarini ko‘ring.</p>
+            </div>
+          </div>
+          <div class="warning-box">GeoIP ma'lumotlari taxminiy bo‘ladi, 100% aniq manzil deb qabul qilinmaydi.</div>
+        </div>
+        <div class="scanner-panel">
+          <div class="panel-header">
+            <span>GeoIP Console</span>
+            <small>country / city / ISP</small>
+          </div>
+          <label class="input-card">
+            <span>Public IP manzil</span>
+            <input id="geoTarget" value="8.8.8.8" placeholder="Masalan: 8.8.8.8" />
+          </label>
+          <div class="examples">
+            <span>Misol:</span>
+            <code>8.8.8.8</code>
+            <code>1.1.1.1</code>
+          </div>
+          <button onclick="runGeoIp()">GeoIP topish</button>
+          <pre id="geoResult">Natija shu yerda chiqadi.</pre>
+        </div>
+      </section>
+
+      <section class="about-section" id="about">
+        <p class="eyebrow">Loyiha haqida</p>
+        <h2>Cyber Security Toolkit nima beradi?</h2>
+        <p>
+          Loyiha Node.js va Express backend, HTML/CSS/JavaScript frontend asosida qurilgan.
+          Maqsad - kiber xavfsizlikdagi monitoring, tarmoq tekshiruvi va log tahlili tushunchalarini bitta chiroyli saytda ko‘rsatish.
+        </p>
+        <div class="feature-row">
+          <div>Node.js backend</div>
+          <div>Express API</div>
+          <div>HTML/CSS/JS frontend</div>
+          <div>Lokal xavfsiz scan</div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
